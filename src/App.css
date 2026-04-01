@@ -1,0 +1,595 @@
+/* src/App.css */
+.App {
+   background: #dd212140;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.main-header {
+  background: linear-gradient(135deg, #eb8518 0%, #8306dd 100%);
+  color: white;
+  border-radius: 12px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Верхняя половина main-header */
+.main-header__top {
+  padding: 30px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Нижняя половина main-header */
+.main-header__bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* центрирует дочерние элементы по поперечной оси (горизонтально) */
+  gap: 20px;
+  padding: 25px 20px;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.left-col,
+.right-col {
+  padding: 15px;
+}
+
+/* Навигация и поиск в нижней половине header */
+.navigation-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 15px;
+  margin-bottom: 10px; }
+
+.menu-item {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+/* Контейнер для поисковой строки и tooltip */
+.search-container {
+  width: 100%;
+  max-width: 500px; 
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Стили для SearchBar компонента */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 500px;
+  position: relative;
+}
+
+.search-icon {
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 8px 0 0 8px;
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 48px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  font-size: 1rem;
+  background: white;
+}
+
+.search-bar button {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding:  15px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+
+
+/* Основной контент — два ряда по три блока */
+.main-content {
+  margin-top: 30px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.block {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(173 17 170);
+  min-height: 220px; /* Одинаковая высота для всех блоков */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Стили для конкретных блоков внутри .block */
+/*погода*/
+.weather-block {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 8px;
+}
+
+.weather-block__header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.weather-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.temperature {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.forecast {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/*карта*/
+.map-block.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+}
+
+.map-header {
+  padding: 24px 20px 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba1 100%);
+  color: white;
+}
+
+.map-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.map-subtitle {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+.map-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0 0 16px 16px;
+}
+
+.map-controls {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  justify-content: center;
+}
+
+.map-control-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #513bcb;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.map-control-btn:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/*эфир*/
+.live-block {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.live-block-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba1 100%);
+  padding: 16px;
+  color: white;
+}
+
+.live-block-title {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.live-block-subtitle {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.live-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.live-item {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.live-item:last-child {
+  border-bottom: none;
+}
+
+.live-item-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-status {
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.is-live {
+  background-color: #513bcb;
+  color: white;
+}
+
+.not-live {
+  background-color: #6c757d;
+  color: white;
+}
+
+.live-title {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.live-channel {
+  margin-top: 4px;
+  color: #666;
+  font-size: 14px;
+}
+
+.viewers-count {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 2px 6px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  font-size: 12px;
+}
+/*посещаемое*/
+.popular-links.card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eaeaea;
+}
+
+.popular-links-header {
+  padding: 24px 20px 16px;
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba1 100%);
+  color: white;
+}
+
+.popular-links-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.popular-links-subtitle {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.popular-links-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.popular-link-item {
+  border-top: 1px solid #f0f0f0;
+}
+
+.popular-link-item:first-child {
+  border-top: none;
+}
+
+.popular-link-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.popular-link-content:hover {
+  background-color: #f8f9fa;
+  transform: translateX(4px);
+}
+
+.popular-link-title {
+  font-weight: 600;
+  font-size: 15px;
+  flex: 1;
+  min-width: 0;
+}
+
+.popular-link-description {
+  color: #6c757d;
+  font-size: 13px;
+  margin-left: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-arrow {
+  color: #007bff;
+  font-weight: bold;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-left: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.popular-link-content:hover .link-arrow {
+  opacity: 1;
+}
+
+
+/*тв программа*/
+.tv-program.card {
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #667eea 0%, #764ba1 100%);
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.tv-program-header {
+  padding: 24px 20px 16px;
+  text-align: center;
+}
+
+.tv-program-title {
+  margin: 0 0 8px;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.tv-program-subtitle {
+  margin: 0;
+  font-size: 14px;
+  opacity: 0.9;
+  font-weight: 300;
+}
+
+.tv-program-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tv-program-item {
+  padding: 12px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.tv-program-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.program-item-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.program-time {
+  flex-shrink: 0;
+  width: 60px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #ff9a9e;
+  text-align: right;
+}
+
+.program-info {
+  flex: 1;
+}
+
+.program-title {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.program-channel {
+  font-size: 12px;
+  opacity: 0.8;
+  font-style: italic;
+  color: #fad0c4;
+}
+
+
+/* Пустой блок во втором ряду */
+.empty-block {
+  visibility: hidden; /* Сохраняет место, но невидим */
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.date-time {
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.news-list {
+  margin-top: 20px;
+}
+
+.errors-block {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.advertisement {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 12px rgba(173 17 170);
+}
+
+.weather-block {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.temperature {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1e3c72;
+  margin: 10px 0;
+}
+
+/* Контейнер для горизонтального отображения CurrencyBlock в одну строку */
+.currency-block-container {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Основной блок валют */
+.currency-block {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Отдельный элемент валюты */
+.currency-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px 12px;
+  background: #72368b;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Символ валюты и курс */
+.currency-symbol {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.currency-symbol.positive {
+  color: #28a745; /* Зелёный для роста */
+}
+
+.currency-symbol.negative {
+  color: #dc3545; /* Красный для падения */
+}
+
+/* Изменение курса */
+.currency-change {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.currency-change.positive {
+  color: #28a745;
+}
+
+.currency-change.negative {
+  color: #dc3545;
+}
